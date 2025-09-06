@@ -3,7 +3,7 @@
 This is my personal portfolio website showcasing my skills, projects, and experience.
 
 ## 🔗 Live Demo
-[View Portfolio](https://RoshanPawara54.github.io/portfolio-website/)
+[View Portfolio](https://RoshanPawara54.github.io)
 
 ## 🛠 Tech Stack
 - HTML, CSS, JavaScript
@@ -20,4 +20,4 @@ This is my personal portfolio website showcasing my skills, projects, and experi
 ## 🚀 Hosting
 This portfolio is deployed using **GitHub Pages**.  
 You can visit it at:  
-`https://RoshanPawara54.github.io/portfolio-website/`
+`https://RoshanPawara54.github.io`
