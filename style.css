@@ -239,7 +239,7 @@ html, body {
 
 /* Hover effect: expand + invert colors */
 .project-card:hover {
-  max-height: 260px;   /* expand to show content */
+  max-height: 300px;   /* expand to show content */
   background: black;   /* change background */
   color: #D3D3D3;      /* change text */
   align-items: flex-start; /* push title to top once expanded */
