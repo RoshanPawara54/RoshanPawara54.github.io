@@ -9,9 +9,62 @@ let vantaEffect = VANTA.WAVES({
   scale: 1.00,
   scaleMobile: 1.00,
   color: 0x1e1e1e,
-  shininess: 50.00,
+  shininess: 15.00,
   waveHeight: 20.00,
   waveSpeed: 0.75,
   zoom: 1.00,
   backgroundColor: 0x111111
 });
+// Typewriter Effect
+// Typewriter Effect (one-time, full tagline)
+const tagline = document.querySelector(".hero-tagline");
+const text = "Computer Engineer | Aspiring Data Scientist | AI & Web Developer";
+let i = 0;
+
+function typeWriter() {
+  if (i < text.length) {
+    tagline.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 80); // typing speed (ms)
+  }
+}
+
+window.addEventListener("load", typeWriter);
+
+// Fallback smooth scroll for anchor links (works even if CSS is ignored)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const targetSelector = this.getAttribute('href');
+    if (targetSelector.length > 1) { // skip "#" links
+      const target = document.querySelector(targetSelector);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+function handleScroll() {
+  const sections = document.querySelectorAll("section");
+
+  sections.forEach(section => {
+    const title = section.querySelector(".section-title");
+    const divider = section.querySelector(".full-divider");
+
+    if (title && divider) {
+      const rect = title.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      let progress = 1 - Math.min(Math.max(rect.top / windowHeight, 0), 1);
+
+      let minWidth = 40;   
+      let maxWidth = section.clientWidth * 0.9; // stays inside section
+      let newWidth = minWidth + (maxWidth - minWidth) * progress;
+
+      divider.style.width = newWidth + "px";
+    }
+  });
+}
+
+window.addEventListener("scroll", handleScroll);
+window.addEventListener("load", handleScroll);
