@@ -15,7 +15,7 @@ let vantaEffect = VANTA.WAVES({
   zoom: 1.00,
   backgroundColor: 0x111111
 });
-// Typewriter Effect
+
 // Typewriter Effect (one-time, full tagline)
 const tagline = document.querySelector(".hero-tagline");
 const text = "Computer Engineer | Aspiring Data Scientist | AI & Web Developer";
@@ -25,7 +25,7 @@ function typeWriter() {
   if (i < text.length) {
     tagline.innerHTML += text.charAt(i);
     i++;
-    setTimeout(typeWriter, 80); // typing speed (ms)
+    setTimeout(typeWriter, 30); // typing speed (ms)
   }
 }
 
