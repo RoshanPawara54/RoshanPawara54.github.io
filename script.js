@@ -15,58 +15,11 @@ let vantaEffect = VANTA.WAVES({
   zoom: 1.00,
   backgroundColor: 0x111111
 });
+
+// Expanding divider effect
 window.addEventListener("scroll", handleScroll);
 window.addEventListener("load", handleScroll);
-document.querySelector(".contact-form").addEventListener("submit", async function (e) {
-  e.preventDefault();
 
-  const form = e.target;
-  const formData = new FormData(form);
-
-  const response = await fetch(form.action, {
-    method: form.method,
-    body: formData,
-    headers: {
-      'Accept': 'application/json'
-    }
-  });
-
-  if (response.ok) {
-    alert("✅ Message sent successfully!");
-    form.reset();
-  } else {
-    alert("❌ Oops! Something went wrong. Please try again.");
-  }
-});
-
-// Typewriter Effect (one-time, full tagline)
-const tagline = document.querySelector(".hero-tagline");
-const text = "Computer Engineer | Aspiring Data Scientist | AI & Web Developer";
-let i = 0;
-
-function typeWriter() {
-  if (i < text.length) {
-    tagline.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, 30); // typing speed (ms)
-  }
-}
-
-window.addEventListener("load", typeWriter);
-
-// Fallback smooth scroll for anchor links (works even if CSS is ignored)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const targetSelector = this.getAttribute('href');
-    if (targetSelector.length > 1) { // skip "#" links
-      const target = document.querySelector(targetSelector);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  });
-});
 function handleScroll() {
   const sections = document.querySelectorAll("section");
 
@@ -80,7 +33,7 @@ function handleScroll() {
 
       let progress = 1 - Math.min(Math.max(rect.top / windowHeight, 0), 1);
 
-      let minWidth = 40;   
+      let minWidth = 40;
       let maxWidth = section.clientWidth * 0.9; // stays inside section
       let newWidth = minWidth + (maxWidth - minWidth) * progress;
 
@@ -89,3 +42,56 @@ function handleScroll() {
   });
 }
 
+// Contact Form Submission (Web3Forms)
+document.querySelector(".contact-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      alert("✅ Message sent successfully!");
+      form.reset(); // clear fields
+    } else {
+      alert("❌ Oops! Something went wrong. Please try again.");
+    }
+  } catch (err) {
+    console.error("Fetch error:", err);
+    alert("⚠️ Could not send message. Check internet or Web3Forms setup.");
+  }
+});
+
+// Typewriter Effect (one-time tagline)
+const tagline = document.querySelector(".hero-tagline");
+const text = "Computer Engineer | Aspiring Data Scientist | AI & Web Developer";
+let i = 0;
+
+function typeWriter() {
+  if (i < text.length) {
+    tagline.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 30); 
+  }
+}
+
+window.addEventListener("load", typeWriter);
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const targetSelector = this.getAttribute('href');
+    if (targetSelector.length > 1) { // skip "#" links
+      const target = document.querySelector(targetSelector);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
