@@ -41,49 +41,71 @@ html, body {
   z-index: -1;
 }
 
-/* Navbar */
-header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  background: rgba(18, 18, 18, 0.9); /* transparent black */
-  backdrop-filter: blur(6px); /* glassy effect */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-}
-
+/* Navbar styling */
 .navbar {
-  max-width: 1500px;
-  margin: auto;
-  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px 40px;
+  background: #111;
+  color: #F3E1D3;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .logo {
-  font-size: 20px;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #F3E1D3;
 }
 
+/* Default nav links (desktop) */
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 30px;
+  list-style: none;
+  gap: 20px;
 }
 
 .nav-links li a {
+  color: #F3E1D3;
   text-decoration: none;
-  color: #f5f5f5;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  transition: 0.3s;
 }
 
 .nav-links li a:hover {
-  color: #F3E1D3;
+  color: white;
 }
+
+/* Hamburger menu hidden on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #111;
+    flex-direction: column;
+    width: 200px;
+    padding: 15px;
+    display: none; /* hidden by default */
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
 
 /* Prevent hero section from being hidden behind navbar */
 #home, .profile-header {
