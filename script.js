@@ -15,6 +15,29 @@ let vantaEffect = VANTA.WAVES({
   zoom: 1.00,
   backgroundColor: 0x111111
 });
+window.addEventListener("scroll", handleScroll);
+window.addEventListener("load", handleScroll);
+document.querySelector(".contact-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  const response = await fetch(form.action, {
+    method: form.method,
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+
+  if (response.ok) {
+    alert("✅ Message sent successfully!");
+    form.reset();
+  } else {
+    alert("❌ Oops! Something went wrong. Please try again.");
+  }
+});
 
 // Typewriter Effect (one-time, full tagline)
 const tagline = document.querySelector(".hero-tagline");
@@ -66,26 +89,3 @@ function handleScroll() {
   });
 }
 
-window.addEventListener("scroll", handleScroll);
-window.addEventListener("load", handleScroll);
-document.querySelector(".contact-form").addEventListener("submit", async function (e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const formData = new FormData(form);
-
-  const response = await fetch(form.action, {
-    method: form.method,
-    body: formData,
-    headers: {
-      'Accept': 'application/json'
-    }
-  });
-
-  if (response.ok) {
-    alert("✅ Message sent successfully!");
-    form.reset();
-  } else {
-    alert("❌ Oops! Something went wrong. Please try again.");
-  }
-});
