@@ -21,18 +21,32 @@
 <body>
   <!-- Background -->
   <div id="background"></div>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Roshan Pawara</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
 
   <!-- Main Content -->
   <div class="main-content">
     <!-- Profile Section -->
-    <div class="profile-header" data-aos="fade-right">
-      <img src="profile.jpg" alt="Roshan Pawara" class="profile-pic">
-      <div class="intro-text">
-        <h1 class="hero-name">Roshan Pawara</h1>
-        <h2 class="hero-tagline"></h2>
-        <a href="#about" class="scroll-down" aria-label="Scroll down">↓</a>
+    <section id="home">
+      <div class="profile-header" data-aos="fade-right">
+        <img src="profile.jpg" alt="Roshan Pawara" class="profile-pic">
+        <div class="intro-text">
+          <h1 class="hero-name">Roshan Pawara</h1>
+          <h2 class="hero-tagline"></h2>
+          <a href="#about" class="scroll-down" aria-label="Scroll down">↓</a>
+        </div>
       </div>
-    </div>
+    </section>
 
     <!-- About Section -->
     <section id="about" class="about" data-aos="fade-up">
@@ -137,12 +151,21 @@
 
       <div class="contact-container">
         <!-- Left side: Form -->
-        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Required Access Key -->
+          <input type="hidden" name="access_key" value="8f10ab16-371f-4cfd-b45c-d46b95bfce52">
+
+          <!-- Form Fields -->
           <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="_replyto" placeholder="Your Email" required>
+          <input type="email" name="email" placeholder="Your Email" required>
           <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+          <!-- Optional Redirect after Submit -->
+          <input type="hidden" name="redirect" value="https://yourwebsite.com/thank-you.html">
+
           <button type="submit">Submit</button>
         </form>
+
       
         <!-- Right side: Info -->
         <div class="contact-info">

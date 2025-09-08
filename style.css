@@ -18,8 +18,8 @@ body::-webkit-scrollbar {
 
 /* Works for Firefox */
 html, body {
-  scrollbar-width: none;       /* Firefox */
-  -ms-overflow-style: none;    /* Internet Explorer & old Edge */
+  scrollbar-width: none;       
+  -ms-overflow-style: none;    
 }
 
 
@@ -41,6 +41,56 @@ html, body {
   z-index: -1;
 }
 
+/* Navbar */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(18, 18, 18, 0.9); /* transparent black */
+  backdrop-filter: blur(6px); /* glassy effect */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.navbar {
+  max-width: 1500px;
+  margin: auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #F3E1D3;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #f5f5f5;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #F3E1D3;
+}
+
+/* Prevent hero section from being hidden behind navbar */
+#home, .profile-header {
+  padding-top: 100px;
+}
+
+
 /* Main content */
 .main-content {
   position: relative;
@@ -50,16 +100,17 @@ html, body {
 
 /* Profile header */
 .profile-header {
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 80vh;
-  gap: 20px;
-  margin: 60px 0;
+  justify-content: center; 
   text-align: center;
-  position: relative; /* so scroll arrow stays inside */
+  gap: 20px;
+  padding: 0; 
+  margin: 0;
 }
+
 
 
 .profile-pic {
@@ -69,29 +120,29 @@ html, body {
   object-fit: cover;
   border: 4px solid white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px; /* small space below */
 }
 
 .hero-name {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 800;
   color: #F3E1D3;
-  margin-top: 20px;
+  margin: 0;
 }
 
 .hero-tagline {
   font-size: 1.2rem;
   font-weight: 400;
-  margin-top: 10px;
-  color: #F3E1D3;
-  min-height: 30px; /* keeps space during typing */
-  text-align: center;
+  color: #f5f5f5;
+  margin: 0;
 }
+
 
 
 /* Scroll Down Arrow */
 .scroll-down {
   position: absolute;
-  bottom: 40px;
+  bottom: 5px;
   font-size: 2rem;
   color: #F3E1D3;
   text-decoration: none;
@@ -133,7 +184,7 @@ html, body {
 }
 
 .about b {
-  color: #F3E1D3 /* bold text stays black */;
+  color: #F3E1D3 ;
 }
 
 .about p {
@@ -183,18 +234,18 @@ html, body {
 
 .project-card {
   width: 280px;
-  background: #F3E1D3;   /* initial background */
-  color: black;           /* initial text color */
+  background: #F3E1D3;   
+  color: black;          
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.5s ease;
-  max-height: 100px; /* only title visible at start */
+  max-height: 100px; 
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   position: relative;
   display: flex;
-  align-items: center;   /* center vertically */
-  justify-content: center; /* center horizontally */
+  align-items: center;   
+  justify-content: center; 
   text-align: center;
 }
 
@@ -239,10 +290,10 @@ html, body {
 
 /* Hover effect: expand + invert colors */
 .project-card:hover {
-  max-height: 300px;   /* expand to show content */
-  background: black;   /* change background */
-  color: #D3D3D3;      /* change text */
-  align-items: flex-start; /* push title to top once expanded */
+  max-height: 300px;   
+  background: black;   
+  color: #D3D3D3;     
+  align-items: flex-start; 
   padding-top: 20px;
 }
 
@@ -253,8 +304,8 @@ html, body {
 
 .contact {
   padding: 60px 20px;
-  background: transparent; /* match website bg */
-  color: #f5f5f5;
+  background: transparent; 
+  color: #F3E1D3;
 }
 
 .contact-container {
@@ -265,17 +316,17 @@ html, body {
   align-items: flex-start;
 }
 
-/* Wrap the entire form in a black box */
+
 .contact-form {
   flex: 1;
   min-width: 300px;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background: #1e1e1e;         /* black box background */
+  background: #1e1e1e;        
   padding: 25px;
-  border-radius: 12px;          /* smooth corners */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4); /* soft shadow */
+  border-radius: 12px;         
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4); 
 }
 
 /* Inputs inside the box */
@@ -285,7 +336,7 @@ html, body {
   padding: 12px;
   border: none;
   border-radius: 8px;
-  background: #2a2a2a;  /* dark gray inside */
+  background: #2a2a2a;  
   color: #fff;
   font-size: 14px;
 }
@@ -317,7 +368,7 @@ html, body {
 .contact-info {
   flex: 1;
   min-width: 250px;
-  font-size: 18spx;   /* reduced size */
+  font-size: 18spx;   
   line-height: 1.6;
   color: #ccc;
 }
@@ -329,7 +380,7 @@ html, body {
 
 .map-container {
   margin-top: 15px;
-  width: 250px;   /* fixed square size */
+  width: 250px;   
   height: 250px;
   border-radius: 12px;
   overflow: hidden;
