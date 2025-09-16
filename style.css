@@ -41,12 +41,12 @@ html, body {
   z-index: -1;
 }
 
-/* Navbar styling */
+/* Navbar base */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
+  padding: 15px 20px;
   background: #111;
   color: #F3E1D3;
   position: fixed;
@@ -56,11 +56,11 @@ html, body {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
 }
 
-/* Default nav links (desktop) */
+/* Desktop Nav */
 .nav-links {
   display: flex;
   list-style: none;
@@ -70,6 +70,7 @@ html, body {
 .nav-links li a {
   color: #F3E1D3;
   text-decoration: none;
+  font-size: 1rem;
   transition: 0.3s;
 }
 
@@ -77,34 +78,37 @@ html, body {
   color: white;
 }
 
-/* Hamburger menu hidden on desktop */
+/* Hamburger (hidden on desktop) */
 .menu-toggle {
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
+  color: #F3E1D3;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
   .nav-links {
+    display: none; /* hidden by default */
     position: absolute;
     top: 60px;
     right: 0;
     background: #111;
     flex-direction: column;
-    width: 200px;
+    width: 220px;
     padding: 15px;
-    display: none; /* hidden by default */
+    border-radius: 8px;
   }
 
   .nav-links.show {
-    display: flex;
+    display: flex; /* show when toggled */
   }
 
   .menu-toggle {
-    display: block;
+    display: block; /* only visible on mobile */
   }
 }
+
 
 
 /* Prevent hero section from being hidden behind navbar */
