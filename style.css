@@ -222,6 +222,35 @@ html, body {
   text-align: center;
 }
 
+.experience-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* responsive for smaller screens */
+  margin-top: 40px;
+}
+
+.experience-card {
+  flex: 1 1 45%; /* ~45% width each on desktop */
+  background: #1e1e1e;
+  color: #F3E1D3;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+.experience-card h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
 .cv-btn {
   display: inline-block;
   margin-top: 30px;
@@ -254,8 +283,14 @@ html, body {
 .project-grid {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.project-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .project-card {
